@@ -82,8 +82,29 @@
             border-radius: 2px;
         }
         
-        .section-title.light::after {
-            background: var(--accent-color);
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            color: white;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-linkedin {
+            background-color: #0077b5;
+        }
+        
+        .btn-github {
+            background-color: #333;
         }
         
         .section-padding {
@@ -311,6 +332,68 @@
             transform: translateY(-5px);
         }
         
+        /* Case Study Modal Styles */
+        .case-study-modal .modal-content {
+            border-radius: 10px;
+            overflow: hidden;
+            border: none;
+        }
+        
+        .case-study-modal .modal-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-bottom: none;
+        }
+        
+        .case-study-modal .modal-body {
+            padding: 30px;
+        }
+        
+        .case-study-img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .case-study-features {
+            margin: 25px 0;
+        }
+        
+        .case-study-features li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .case-study-features li::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+        
+        .tech-badge {
+            background-color: rgba(67, 97, 238, 0.1);
+            color: var(--primary-color);
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+        
+        .result-card {
+            background-color: rgba(67, 97, 238, 0.05);
+            border-left: 4px solid var(--primary-color);
+            padding: 20px;
+            border-radius: 0 8px 8px 0;
+            margin: 20px 0;
+        }
+        
         /* Responsive Adjustments */
         @media (max-width: 768px) {
             .hero-section {
@@ -370,9 +453,17 @@
                     <h6 class="text-uppercase text-accent mb-3">Finance & Data Analytics Specialist</h6>
                     <h1 class="display-4 fw-bold mb-4">Jagadeesh Gutti</h1>
                     <p class="lead mb-4">Transforming data into actionable insights and financial strategies that drive business growth.</p>
-                    <div class="d-flex flex-wrap gap-3">
+                    <div class="d-flex flex-wrap gap-3 mb-4">
                         <a href="#contact" class="btn btn-primary">Get Started</a>
                         <a href="#portfolio" class="btn btn-outline-light">View Work</a>
+                    </div>
+                    <div class="social-buttons">
+                        <a href="https://linkedin.com/in/yourprofile" class="social-btn btn-linkedin" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/yourusername" class="social-btn btn-github" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-6 text-center" data-aos="fade-left">
@@ -390,30 +481,16 @@
                     <h6 class="text-uppercase text-primary mb-3">About Me</h6>
                     <h2 class="section-title mb-4">Turning Numbers Into Strategic Decisions</h2>
                     <p class="mb-4">With a background in Civil Engineering and specialized training in data analytics, I bring a unique analytical perspective to financial problem-solving. My approach combines technical precision with business acumen to deliver impactful results.</p>
-                    <div class="row">
-                        <div class="col-6 mb-4">
-                            <div class="d-flex align-items-center">
-                                <div class="bg-primary bg-opacity-10 p-3 rounded-circle me-3">
-                                    <i class="fas fa-award text-primary"></i>
-                                </div>
-                                <div>
-                                    <h5 class="mb-0">5+</h5>
-                                    <small class="text-muted">Projects Completed</small>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6 mb-4">
-                            <div class="d-flex align-items-center">
-                                <div class="bg-primary bg-opacity-10 p-3 rounded-circle me-3">
-                                    <i class="fas fa-smile text-primary"></i>
-                                </div>
-                                <div>
-                                    <h5 class="mb-0">100%</h5>
-                                    <small class="text-muted">Client Satisfaction</small>
-                                </div>
-                            </div>
-                        </div>
+                    
+                    <div class="social-buttons mb-4">
+                        <a href="https://linkedin.com/in/yourprofile" class="social-btn btn-linkedin me-2" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/yourusername" class="social-btn btn-github" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
                     </div>
+                    
                     <a href="Jagadeesh_Gutti_resume-1.pdf" class="btn btn-outline-primary mt-2" download>
                         <i class="fas fa-download me-2"></i> Download CV
                     </a>
@@ -596,9 +673,10 @@
                 <p class="w-75 mx-auto">A selection of my recent work in financial analysis and data visualization</p>
             </div>
             <div class="row g-4">
+                <!-- Project 1 -->
                 <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="service-card overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Project" class="img-fluid w-100">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Financial Dashboard" class="img-fluid w-100">
                         <div class="p-4">
                             <h5 class="mb-2">Financial Performance Dashboard</h5>
                             <p class="text-muted mb-3">Interactive dashboard analyzing company financials with predictive trends</p>
@@ -607,13 +685,17 @@
                                 <span class="badge bg-primary bg-opacity-10 text-primary">Financial Analysis</span>
                                 <span class="badge bg-primary bg-opacity-10 text-primary">Data Visualization</span>
                             </div>
-                            <a href="#" class="btn btn-sm btn-outline-primary">View Case Study</a>
+                            <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#caseStudy1">
+                                View Case Study
+                            </button>
                         </div>
                     </div>
                 </div>
+
+                <!-- Project 2 -->
                 <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="service-card overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Project" class="img-fluid w-100">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Risk Analysis Model" class="img-fluid w-100">
                         <div class="p-4">
                             <h5 class="mb-2">Portfolio Risk Analysis Model</h5>
                             <p class="text-muted mb-3">Custom risk assessment tool for investment portfolios</p>
@@ -622,13 +704,17 @@
                                 <span class="badge bg-primary bg-opacity-10 text-primary">Risk Modeling</span>
                                 <span class="badge bg-primary bg-opacity-10 text-primary">Monte Carlo</span>
                             </div>
-                            <a href="#" class="btn btn-sm btn-outline-primary">View Case Study</a>
+                            <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#caseStudy2">
+                                View Case Study
+                            </button>
                         </div>
                     </div>
                 </div>
+
+                <!-- Project 3 -->
                 <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="service-card overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Project" class="img-fluid w-100">
+                        <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Cost Optimization" class="img-fluid w-100">
                         <div class="p-4">
                             <h5 class="mb-2">Construction Cost Optimization</h5>
                             <p class="text-muted mb-3">Data-driven approach to reduce material costs by 15%</p>
@@ -637,7 +723,9 @@
                                 <span class="badge bg-primary bg-opacity-10 text-primary">Cost Analysis</span>
                                 <span class="badge bg-primary bg-opacity-10 text-primary">Optimization</span>
                             </div>
-                            <a href="#" class="btn btn-sm btn-outline-primary">View Case Study</a>
+                            <button class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#caseStudy3">
+                                View Case Study
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -647,6 +735,188 @@
             </div>
         </div>
     </section>
+
+    <!-- Case Study Modals -->
+    <!-- Case Study 1 Modal -->
+    <div class="modal fade case-study-modal" id="caseStudy1" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Financial Performance Dashboard</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Dashboard Screenshot" class="case-study-img">
+                    
+                    <h6>Project Overview</h6>
+                    <p>Developed a comprehensive financial dashboard for a mid-sized manufacturing company to track KPIs, revenue trends, and operational metrics in real-time. The dashboard replaced manual Excel reports that took 15+ hours weekly to prepare.</p>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <h6>Challenge</h6>
+                            <ul class="case-study-features">
+                                <li>Disparate data sources with inconsistent formats</li>
+                                <li>Manual reporting processes prone to errors</li>
+                                <li>Lack of real-time visibility into financial health</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Solution</h6>
+                            <ul class="case-study-features">
+                                <li>Automated data pipeline connecting ERP, CRM, and accounting systems</li>
+                                <li>Interactive visualizations with drill-down capabilities</li>
+                                <li>Predictive analytics for revenue forecasting</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <h6>Key Results</h6>
+                        <ul class="case-study-features">
+                            <li>Reduced reporting time by 85% (from 15 hours to 2 hours weekly)</li>
+                            <li>Identified $250K in cost savings opportunities in first 3 months</li>
+                            <li>Improved forecast accuracy by 30%</li>
+                        </ul>
+                    </div>
+                    
+                    <h6>Technologies Used</h6>
+                    <div class="mb-4">
+                        <span class="tech-badge">Power BI</span>
+                        <span class="tech-badge">SQL</span>
+                        <span class="tech-badge">Azure Data Factory</span>
+                        <span class="tech-badge">DAX</span>
+                        <span class="tech-badge">Power Query</span>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between">
+                        <button class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                        <a href="#contact" class="btn btn-primary" data-bs-dismiss="modal">Start Similar Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Case Study 2 Modal -->
+    <div class="modal fade case-study-modal" id="caseStudy2" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Portfolio Risk Analysis Model</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Risk Model Screenshot" class="case-study-img">
+                    
+                    <h6>Project Overview</h6>
+                    <p>Created a custom risk assessment tool for an investment firm to evaluate portfolio risk under various market conditions. The model incorporated Monte Carlo simulations and scenario analysis to provide probabilistic outcomes.</p>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <h6>Challenge</h6>
+                            <ul class="case-study-features">
+                                <li>Over-reliance on historical performance data</li>
+                                <li>Limited ability to stress-test portfolios</li>
+                                <li>Manual calculation of risk metrics</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Solution</h6>
+                            <ul class="case-study-features">
+                                <li>Monte Carlo simulation with 10,000+ iterations</li>
+                                <li>Customizable scenario analysis</li>
+                                <li>Automated risk metric calculations</li>
+                                <li>Interactive sensitivity analysis</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <h6>Key Results</h6>
+                        <ul class="case-study-features">
+                            <li>Reduced risk assessment time from 8 hours to 30 minutes per portfolio</li>
+                            <li>Identified 22% higher risk exposure than previous methods</li>
+                            <li>Enabled dynamic portfolio rebalancing based on real-time data</li>
+                        </ul>
+                    </div>
+                    
+                    <h6>Technologies Used</h6>
+                    <div class="mb-4">
+                        <span class="tech-badge">Excel VBA</span>
+                        <span class="tech-badge">Monte Carlo Simulation</span>
+                        <span class="tech-badge">Yahoo Finance API</span>
+                        <span class="tech-badge">Modern Portfolio Theory</span>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between">
+                        <button class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                        <a href="#contact" class="btn btn-primary" data-bs-dismiss="modal">Start Similar Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Case Study 3 Modal -->
+    <div class="modal fade case-study-modal" id="caseStudy3" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Construction Cost Optimization</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Construction Analysis" class="case-study-img">
+                    
+                    <h6>Project Overview</h6>
+                    <p>Developed a data-driven cost optimization model for a construction firm to reduce material costs without compromising quality. Analyzed 3 years of project data to identify savings opportunities.</p>
+                    
+                    <div class="row mt-4">
+                        <div class="col-md-6">
+                            <h6>Challenge</h6>
+                            <ul class="case-study-features">
+                                <li>Material costs increasing 8% annually</li>
+                                <li>No centralized tracking of supplier performance</li>
+                                <li>Manual bid comparison processes</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h6>Solution</h6>
+                            <ul class="case-study-features">
+                                <li>Automated data collection from past projects</li>
+                                <li>Supplier performance scoring system</li>
+                                <li>Optimal material mix recommendations</li>
+                                <li>Bid analysis algorithm</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="result-card">
+                        <h6>Key Results</h6>
+                        <ul class="case-study-features">
+                            <li>Achieved 15% reduction in material costs ($320K annual savings)</li>
+                            <li>Reduced bid analysis time by 65%</li>
+                            <li>Improved on-time delivery from suppliers by 22%</li>
+                        </ul>
+                    </div>
+                    
+                    <h6>Technologies Used</h6>
+                    <div class="mb-4">
+                        <span class="tech-badge">Python</span>
+                        <span class="tech-badge">Pandas</span>
+                        <span class="tech-badge">NumPy</span>
+                        <span class="tech-badge">Scikit-learn</span>
+                        <span class="tech-badge">Tableau</span>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between">
+                        <button class="btn btn-outline-secondary" data-bs-dismiss="modal">Close</button>
+                        <a href="#contact" class="btn btn-primary" data-bs-dismiss="modal">Start Similar Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Experience Section -->
     <section id="experience" class="section-padding">
@@ -794,10 +1064,10 @@
                     <div class="mt-5">
                         <h5 class="mb-3">Follow Me</h5>
                         <div class="d-flex">
-                            <a href="#" class="social-link me-3">
+                            <a href="https://linkedin.com/in/yourprofile" class="social-link me-3" target="_blank">
                                 <i class="fab fa-linkedin-in"></i>
                             </a>
-                            <a href="#" class="social-link me-3">
+                            <a href="https://github.com/yourusername" class="social-link me-3" target="_blank">
                                 <i class="fab fa-github"></i>
                             </a>
                             <a href="#" class="social-link me-3">
@@ -840,6 +1110,14 @@
                 <div class="col-lg-4 mb-5 mb-lg-0">
                     <h4 class="text-white mb-4">Jagadeesh Gutti</h4>
                     <p class="text-white-50">Finance & Data Analytics Specialist helping businesses make data-driven decisions.</p>
+                    <div class="social-buttons mt-4">
+                        <a href="https://linkedin.com/in/yourprofile" class="social-link me-3" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://github.com/yourusername" class="social-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
                 </div>
                 <div class="col-lg-4 mb-5 mb-lg-0">
                     <h5 class="text-white mb-4">Quick Links</h5>
@@ -866,14 +1144,11 @@
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <div class="d-flex justify-content-center justify-content-md-end">
-                        <a href="#" class="social-link me-3">
+                        <a href="https://linkedin.com/in/yourprofile" class="social-link me-3" target="_blank">
                             <i class="fab fa-linkedin-in"></i>
                         </a>
-                        <a href="#" class="social-link me-3">
+                        <a href="https://github.com/yourusername" class="social-link" target="_blank">
                             <i class="fab fa-github"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-twitter"></i>
                         </a>
                     </div>
                 </div>
